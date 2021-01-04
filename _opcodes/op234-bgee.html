@@ -1,0 +1,58 @@
+---
+n: 234
+name: "Spell Effect: Contingency Creation"
+param1: "Maximum Level Usable"
+param2: "Amount/Type"
+bg1: 0
+bg2: 0
+bgee: 1
+iwd1: 0
+iwd2: 0
+pst: 0
+---
+Creates a custom spell contingency, storing a certain number of spells to be cast upon a specified condition.
+<br/>The spells are stored using <a href="#op232">opcode #232</a>, using <code>Timing Mode 1</code> and <code>Parameter3</code> set to <code>1</code>.
+<br/>The <code>Maximum Level</code> field indicates the maximum spell level that can be used in the contingency. The <code>Amount/Type</code> field indicates the number of spells that can be used in the contingency, and the type of the contingency.
+<br/>Known values for the <code>Amount/Type</code> field are:
+<ul>
+	<li>First word: Amount (<code>1–3</code>)</li>
+	<li>Second word:
+		<ul>
+			<li>0 &longrightarrow; Chain Contingency (See <a href="#op232">opcode #232</a> for target and condition descriptions)
+				<ul>
+					<li>Target choices are limited to those listed in <a href="../files/2da/2da_bgee/conttarg.htm">CONTTARG.2DA</a></li>
+					<li>Condition choices limited to those listed in <a href="../files/2da/2da_bgee/contcond.htm">CONTCOND.2DA</a>.</li>
+				</ul>
+			</li>
+			<li>1 &longrightarrow; Normal Contingency
+				<ul>
+					<li>Target choice is limited to <code>0|Myself</code>, and only if it's listed in <a href="../files/2da/2da_bgee/conttarg.htm">CONTTARG.2DA</a>.</li>
+					<li>Condition choices limited to those listed in <a href="../files/2da/2da_bgee/contcond.htm">CONTCOND.2DA</a>.</li>
+				</ul>
+			</li>
+			<li>2 &longrightarrow; Sequencer
+				<ul>
+					<li>Functions as per <a href="#op257">opcode #257</a>.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+{% capture note %}
+As of v2.3, an entry for the <code>Parent Resource</code> or <code>Activation Key</code> must be added to the <code>mageBookStrings{}</code> lua table for the UI, or the game will crash upon use.
+{% endcapture %}
+
+{% include important.html %}
+
+{% capture note %}
+The presence of this effect in any of a spell's ability headers will force any Wild Surge of that spell to use the 'Cast Normal' result.
+{% endcapture %}
+
+{% include note.html %}
+
+{% capture note %}
+This opcode only works from party-members.
+{% endcapture %}
+
+{% include note.html %}

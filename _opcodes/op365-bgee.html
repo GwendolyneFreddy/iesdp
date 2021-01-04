@@ -11,5 +11,38 @@ iwd1: 0
 iwd2: 0
 pst: 0
 ---
-'Special' parameter: Enable selection circle color?
-<br/><br/>Any non-zero value in param1, param2, or special field enables dialogue, AI, and selection circle color respectively.
+This effects makes the targeted creature unselectable.<br />
+
+Known values for <code>Dialogue Enabled</code> are:<br />
+BG:EE/SoD:
+<ul>
+	<li>0 &longrightarrow; Enabled</li>
+	<li>1 &longrightarrow; Disabled</li>
+</ul>
+BG2:EE:
+<ul>
+	<li>0 &longrightarrow; Disabled</li>
+	<li>1 &longrightarrow; Enabled</li>
+</ul>
+
+<br/>
+
+Known values for <code>AI Enabled</code> are:
+<ul>
+	<li>0 &longrightarrow; Disabled</li>
+	<li>1 &longrightarrow; Enabled</li>
+</ul>
+
+<br/>
+
+Known values for <code>Selection circle color</code> are:
+<ul>
+	<li>0 &longrightarrow; Purple Selection Circle</li>
+	<li>non-zero &longrightarrow; Normal Selection Circle</li>
+</ul>
+
+{% capture note %}
+<code>AI Enabled</code> doesn't work in BG:EE/SoD games (i.e., you cannot disable the AI of the targeted creature).
+{% endcapture %}
+
+{% include note.html %}

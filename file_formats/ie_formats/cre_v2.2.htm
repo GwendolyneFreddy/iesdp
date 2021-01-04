@@ -94,7 +94,7 @@ title: "CRE file format"
                 <li><span class="unknown">bit 23 unused</span></li>
                 <li><span class="unknown">bit 30 corpse related?</span></li>
               </ul>
-              The way a multiclass char is indicated is by the absence of any of the &quot;original class&quot; flags being set.<br />
+              The way a multiclass char is indicated is by the absence of any of the &quot;original class&quot; flags being set. Since they don't cover all classes, you are better of checking via levels or class masks.<br />
               These bits can be checked using the IsCreatureAreaFlag trigger, and set using the SetCreatureAreaFlag action.<br />
             </td>
           </tr>
@@ -719,7 +719,7 @@ title: "CRE file format"
           </tr>
           <tr>
             <td>0x0264</td>
-            <td>2 (byte)</td>
+            <td>2 (word)</td>
             <td><span class="unknown">Unknown</span></td>
           </tr>
           <tr>
@@ -754,7 +754,7 @@ title: "CRE file format"
           </tr>
           <tr>
             <td>0x026c</td>
-            <td>4 (byte)</td>
+            <td>4 (dword)</td>
             <td><span class="unknown">Unknown</span></td>
           </tr>
           <tr>
@@ -815,7 +815,7 @@ title: "CRE file format"
           </tr>
           <tr>
             <td>0x02aa</td>
-            <td>32 (byte)</td>
+            <td>32 (bytes)</td>
             <td>Secondary death variable (set to 1 on death)</td>
           </tr>
           <tr>
@@ -847,7 +847,7 @@ title: "CRE file format"
           </tr>
           <tr>
             <td>0x02f2</td>
-            <td>15 (byte)</td>
+            <td>15 (bytes)</td>
             <td><span class="unknown">Unknown</span></td>
           </tr>
           <tr>
@@ -894,7 +894,7 @@ title: "CRE file format"
           </tr>
           <tr>
             <td>0x0308</td>
-            <td>124 (byte)</td>
+            <td>124 (bytes)</td>
             <td><span class="unknown">Unknown</span></td>
           </tr>
           <tr>
@@ -915,7 +915,7 @@ title: "CRE file format"
           <tr>
             <td>0x0387</td>
             <td>1 (byte)</td>
-            <td>Class (CLASS.IDS)</td>
+            <td>Class (CLASS.IDS) — not updated when you multiclass</td>
           </tr>
           <tr>
             <td>0x0388</td>
@@ -988,7 +988,7 @@ title: "CRE file format"
             <td>Bard Spell Offset (Level 4)</td>
           </tr>
           <tr>
-            <td>0x03c8</td>
+            <td>0x03ca</td>
             <td>4 (dword)</td>
             <td>Bard Spell Offset (Level 5)</td>
           </tr>

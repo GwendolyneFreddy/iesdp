@@ -1,0 +1,10 @@
+iwd2: 1
+n: 285
+name: SmallWaitRandom
+params:
+  - name: Min
+    type: i
+  - name: Max
+    type: i
+desc: |-
+  This action is like SmallWait, but the duration is random within the bounds of the parameters.

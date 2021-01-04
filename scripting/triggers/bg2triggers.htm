@@ -21,7 +21,7 @@ title: "BG2: ToB Script Triggers"
     Returns true if the specified object has left the party in the last script round. This trigger is only sent to player characters.<br />
     <br />
     <strong>0x0006 ReceivedOrder(O:Object*,I:Order ID*)</strong><br />
-    NT<br />
+    This trigger is used in conjunction with the GiveOrder() action, and works in a similar way to the Heard() trigger. Only one creature at a time responds to an order, and creatures do not detect their own orders. The creature must be in visual range for this trigger to work.<br />
     <br />
     <strong>0x0007 Said(O:Object*,I:Dialog ID*)</strong><br />
     NT<br />
@@ -267,7 +267,7 @@ title: "BG2: ToB Script Triggers"
     Only for trap scripts. Returns true only if the specified object detected this trap in the last script round.<br />
     <br />
     <strong>0x0055 Reset(O:Object*)</strong><br />
-    NT Only for trap scripts? Returns true only if this trap or trigger was reset in the last script round by the object specified.<br />
+    Only for trap scripts? Returns true only if this trap or trigger was reset in the last script round by the object specified.<br />
     <br />
     <strong>0x0056 Disarmed(O:Object*)</strong><br />
     Only for trap/trigger region scripts. Returns true only if the specified object disarmed this trap in the last script round.<br />
@@ -340,13 +340,13 @@ title: "BG2: ToB Script Triggers"
     Returns true only if the number of party members (dead ones also count) is less than the number specified.<br />
     <br />
     <strong>0x406D UnselectableVariable(I:Num*)</strong><br />
-    NT<br />
+    Returns true only if the active creature is for exactly the specified number of ticks (1/15th seconds) left under the effect of the script action <a href="../actions/bg2actions.htm#182">MakeUnselectable()</a>.<br />
     <br />
     <strong>0x406E UnselectableVariableGT(I:Num*)</strong><br />
-    NT<br />
+    Returns true only if the active creature is for more than the specified number of ticks (1/15th seconds) left under the effect of the script action <a href="../actions/bg2actions.htm#182">MakeUnselectable()</a>.<br />
     <br />
     <strong>0x406F UnselectableVariableLT(I:Num*)</strong><br />
-    NT<br />
+    Returns true only if the active creature is for less than the specified number of ticks (1/15th seconds) left under the effect of the script action <a href="../actions/bg2actions.htm#182">MakeUnselectable()</a>.<br />
     <br />
     <strong>0x0070 Clicked(O:Object*)</strong><br />
     Only for trigger regions. Returns true if the specified object clicked on the trigger region running this script.<br />
@@ -484,7 +484,8 @@ title: "BG2: ToB Script Triggers"
     Returns true only if specified object is in the active area. The active area is that in which player 1 is. This trigger will crash the game if the specified creature is not in the active area and is not a global object.<br />
     <br />
     <strong>0x00A1 SpellCastOnMe(O:Caster*,I:Spell*Spell)</strong><br />
-    Returns true only if the specified object cast the specified spell on the active CRE in the last scriptround.<br />
+    Returns true only if the specified object cast the specified spell on the active CRE in the last scriptround.
+    Returns false for spells whose Ability target (offset 0xC) is 4 (Any point within range).<br />
     <br />
     <strong>0x40A2 CalanderDay(I:Day*)</strong><br />
     NT Returns true only if the current day is the day specified.<br />
@@ -545,7 +546,7 @@ title: "BG2: ToB Script Triggers"
 </ul>
     <br />
     <strong>0x40B2 HasItemSlot(O:Object*,I:Slot*SLOTS)</strong><br />
-    NT Returns true only if the specified object has an item in the specified slot. This trigger does not work for Melf's Minute Meteors.<br />
+    Returns true only if the specified object has an item in the specified slot. This trigger does not work for Melf's Minute Meteors.<br />
     <br />
     <strong>0x40B3 PersonalSpaceDistance(O:Object*,I:Range*)</strong><br />
     NT Returns true if the specified object exactly as far away from the active CRE as the 2nd parameter specifies.<br />
@@ -607,13 +608,13 @@ title: "BG2: ToB Script Triggers"
     Returns true if the specified object has experience points less than the number specified.<br />
     <br />
     <strong>0x40C6 G(S:ResRef*,I:Num*)</strong><br />
-    NT<br />
+    This trigger acts as a shortcut for Global(). The trigger can only check global variables.<br />
     <br />
     <strong>0x40C7 GGT(S:ResRef*,I:Num*)</strong><br />
-    NT<br />
+    This trigger acts as a shortcut for GlobalGT(). The trigger can only check global variables.<br />
     <br />
     <strong>0x40C8 GLT(S:ResRef*,I:Num*)</strong><br />
-    NT<br />
+    This trigger acts as a shortcut for GlobalLT(). The trigger can only check global variables.<br />
     <br />
     <strong>0x40C9 ModalState(I:State*MODAL)</strong><br />
     Returns true only if the active CRE is in the state/mode specified. e.g. detecting traps.<br />

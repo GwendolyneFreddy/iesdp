@@ -5,7 +5,7 @@ param1: "Irrelevant"
 param2: "Type"
 bg1: 0
 bg2: 0
-bgee: 1
+bgee: 0
 iwd1: 1
 iwd2: 1
 pst: 0
@@ -16,4 +16,9 @@ Teleports the targeted creature(s) in the style specified by the 'Type' field.
 <br/>1   Source to Target
 <br/>2   Return to Saved Location
 <br/>3   Exchanged Source and Target
-<br/>Note: in IWD2 both parameters should be 0.
+
+{% capture note %}
+In IWD2 both parameters should be 0.
+{% endcapture %}
+
+{% include important.html %}

@@ -1,0 +1,9 @@
+bg2: 1
+bgee: 1
+n: 221
+name: SetMoraleAI
+params:
+  - name: Morale
+    type: i
+    ids: moraleai
+no_result: true

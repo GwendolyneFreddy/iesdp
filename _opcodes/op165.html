@@ -10,8 +10,20 @@ iwd1: 1
 iwd2: 1
 pst: 1
 ---
-Applies the pause effect to the targeted creature(s). 
-This effect is similar to stun, except the targeted creature(s) scripts continue to run.
- Characters are still selectable.
-<br/>This effect sets stat #70 (CasterHold) to 1.
-<br/>Both parameters should be 0.
+Applies the pause effect to the targeted creature(s).<br/>
+In particular:
+<ul>
+	<li>Their inventory is still access-able.</li>
+	<li>They are still select-able, and can be issued orders (for instance, activating modal abilities), though not all actions can be taken.</li>
+	<li>It does not interrupt/end modal abilities the creature is currently using.</li>
+	<li>They are not "helpless", an attack roll is still required to hit them.</li>
+	<li>Their scripts stop running.</li>
+</ul>
+
+<br/>This effect sets <a href="../files/ids/bgee/stats.htm#70">CasterHold</a> to <code>1</code>.
+
+{% capture note %}
+Both parameters should be <code>0</code>.
+{% endcapture %}
+
+{% include important.html %}

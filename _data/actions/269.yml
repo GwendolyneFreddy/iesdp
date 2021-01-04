@@ -1,0 +1,23 @@
+bg2: 1
+n: 269
+name: DisplayStringHead
+params:
+  - name: Object
+    type: o
+  - name: StrRef
+    type: i
+desc: |-
+  This action displays the specified string over the head on the specified object (on the game-screen). The string may also be shown in the message log, depending on options specified in baldur.ini.
+
+  ```
+  IF
+    HPPercentLT(Myself,50)
+    HasItem("Potn52",Myself)
+  THEN
+    RESPONSE #100
+      DisplayStringHead(Myself,46150)
+      UseItem("Potn52",Myself)
+  END
+  ```
+
+  If the object's name is unset or set to an invalid strref, it will be attributed to the protagonist in the message log. To avoid that, use `DisplayStringNoNameHead()`, or `SAY` the creature's `NAME` to ~~ (empty string) when coding it in WeIDu.

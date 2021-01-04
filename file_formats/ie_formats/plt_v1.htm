@@ -45,13 +45,13 @@ title: "PLT file format"
       </thead>
       <tr>
         <td>0x00000</td>
-        <td>4 (ASCIIZ string)</td>
+        <td>4 (char array)</td>
         <td>Signature ('PLT ')</td>
       </tr>
       <tr>
         <td>0x00004</td>
-        <td>4 (ASCIIZ string)</td>
-        <td>Version 'V1&nbsp; '</td>
+        <td>4 (char array)</td>
+        <td>Version ('V1 &nbsp;')</td>
       </tr>
       <tr>
         <td>0x00008</td>
@@ -75,12 +75,12 @@ title: "PLT file format"
       </tr>
       <tr>
         <td>0x00010</td>
-        <td>4 (word)</td>
+        <td>4 (dword)</td>
         <td>Width</td>
       </tr>
       <tr>
         <td>0x00014</td>
-        <td>4 (word)</td>
+        <td>4 (dword)</td>
         <td>Height</td>
       </tr>
     </table>

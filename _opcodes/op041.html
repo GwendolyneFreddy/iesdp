@@ -10,7 +10,7 @@ iwd1: 0
 iwd2: 0
 pst: 0
 ---
-Displays the sparkle effect specified by the 'Type' field, in the colour specified by the 'Colour' field. The colour field may be connected to sprkclr.2da.
+Displays the sparkle effect specified by the 'Type' field, in the colour specified by the 'Colour' field. The colour field may be connected to <a href="../files/2da/2da_bgee/sprklclr.htm">SPRKLCLR.2DA</a>.
 <br/>Known values for 'Colour' are:
 <br/>0   Crash
 <br/>1   Black
@@ -26,8 +26,13 @@ Displays the sparkle effect specified by the 'Type' field, in the colour specifi
 <br/>11  Magenta
 <br/>12  Orange
 <br/>13  Crash+
-<br/>Known values for 'Type' are:
+<br/><br/>Known values for 'Type' are:
 <br/>1   Explosion
 <br/>2   No effect?
 <br/>3   Sparkle Shower
-<br/>Both of these params use only the lower 16 bits (upper bits might have other function).
+
+{% capture note %}
+Both of these params use only the lower 16 bits (upper bits might have other function).
+{% endcapture %}
+
+{% include info.html %}

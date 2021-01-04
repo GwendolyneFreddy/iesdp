@@ -1,0 +1,46 @@
+---
+n: 258
+name: "Spell: Spell Sequencer Activation"
+param1: "Irrelevant"
+param2: "Irrelevant"
+bg1: 0
+bg2: 0
+bgee: 1
+iwd1: 0
+iwd2: 0
+pst: 0
+---
+Activates a spell sequencer at a single target.<br/>
+Activates any <a href="#op256">opcode #256</a> effects with a matching resource (<code>Activation Key</code>) of the targeted creature(s).<br/>
+
+When used in combination with <a href="#op257">opcode #257</a> (Spell Sequencer Creation):
+
+<ul>
+	<li>The <code>resource</code> key must be set to the filename of the spell which contains the Spell Sequencer Creation effect.</li>
+	<li>The spell which contains the Spell Sequencer Creation effect can have a maximum filename of 7 characters.</li>
+	<li>The spell which contains the Spell Sequencer Activation effect must have the same filename, suffixed with the <code>D</code> character, and should be an innate ability. For instance:
+		<ul>
+			<li>Spell Sequencer Creation filename = <code>SPWI420</code></li>
+			<li>Spell Sequencer Activation filename = <code>SPWI420D</code></li>
+		</ul>
+	</li>
+</ul>
+<br/>
+
+Those spells are cast by the targeted creature(s) at "this" ability's target.<br/>
+For each stored spell, "this" ability's target must be within range of that spell, or it will fail.
+<br/><br/>
+
+All <a href="#op256">opcode #256</a> effects with a matching <code>Activation Key</code> are removed if their <code>Parameter3 = 1</code> (those created by <a href="#op257">opcode #257</a> / <a href="#op234">opcode #234</a> have this value set to <code>1</code> by default).
+
+{% capture note %}
+This opcode will fail if delivered directly in an area effect projectile (though it may still target "self" or be used in subsequent non-AoE subspells).
+{% endcapture %}
+
+{% include note.html %}
+
+{% capture note %}
+<code>Activation Key</code> does not have to reference an actual spell or item resource, it can be any valid string, so long as the effects involved (<a href="#op256">256</a>/<a href="#op257">257</a> and <a href="#op258">258</a>/<a href="#op260">260</a>) use the exact same string.
+{% endcapture %}
+
+{% include note.html %}

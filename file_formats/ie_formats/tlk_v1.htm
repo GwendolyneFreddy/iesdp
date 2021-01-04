@@ -24,7 +24,7 @@ title: "TLK file format"
     </div>
     <br />
     
-    <div class="fileHeader"><a name="tlkv1_Header">TLK V1 Header</div>
+    <div class="fileHeader"><a name="tlkv1_Header"></a>TLK V1 Header</div>
     <div class="indent1">
     <br />
     <table border="1" width="98%">
@@ -49,7 +49,7 @@ title: "TLK file format"
         <tr>
           <td>0x0004</td>
           <td>4 (char array)</td>
-          <td>Version ('V1 ')</td>
+          <td>Version ('V1 &nbsp;')</td>
         </tr>
         <tr>
           <td>0x0008</td>
@@ -71,7 +71,7 @@ title: "TLK file format"
     </div>
     <br />
     
-    <div class="fileHeader"><a name="tlkv1_Entry">TLK V1 Entries</div>
+    <div class="fileHeader"><a name="tlkv1_Entry"></a>TLK V1 Entries</div>
     <div class="indent1">
     <br />
     This section is hardcoded to start at byte 18 from the beginning of the file. The string offsets are relative to the strings section.<br />
@@ -94,12 +94,13 @@ title: "TLK file format"
           <td>0x0000</td>
           <td>2 (word)</td>
           <td>
+            Bit field:
             <ul>
               <li>00 - No message data</li>
               <li>01 - Text exists</li>
               <li>02 - Sound exists</li>
               <li>03 - Standard message. Ambient message. Used for sound without text (BG1) or message displayed over characters head (BG2) , Message with tags (for instance &lt;CHARNAME&gt;) for all games except BG2</li>
-              <li>07 - Message with tags (for instance &lt;CHARNAME&gt; ) in BG2 only</li>
+              <li>04 - Token exists (for instance &lt;CHARNAME&gt;), BG2 and EEs only</li>
             </ul>
           </td>
         </tr>
@@ -111,12 +112,12 @@ title: "TLK file format"
         <tr>
           <td>0x000a</td>
           <td>4 (dword)</td>
-          <td>Volume variance</td>
+          <td>Volume variance (Unused, at minimum in BG1)</td>
         </tr>
         <tr>
           <td>0x000e</td>
           <td>4 (dword)</td>
-          <td>Pitch variance</td>
+          <td>Pitch variance (Unused, at minimum in BG1)</td>
         </tr>
         <tr>
           <td>0x0012</td>
@@ -133,11 +134,8 @@ title: "TLK file format"
     </div>
     <br />
     
-    <div class="fileHeader"><a name="tlkv1_Strings">TLK V1 Strings</div>
+    <div class="fileHeader"><a name="tlkv1_Strings"></a>TLK V1 Strings</div>
     <div class="indent1">
     <br />
       This section is composed of ASCII strings. While some strings are NULL terminated, others are not, hence a combination of NULL terminators and the stirng length should be used to find the true string length. Indexing for these strings is done in the <a name="tlkv1_Entry">strref entries</a> section.
     </div>
-  </div>
-</div>
-

@@ -39,10 +39,17 @@ title: "BIFF file format"
     <div class="indent1">
       Overall structure:<br />
       <div class="indent1">
+        <ul>
         <li><a href="#bif_v1_Header">Header</a>
         <li><a href="#bif_v1_FileEntry">File entries</a>
         <li><a href="#bif_v1_TilesetEntry">Tileset entries</a>
-        <li><em>Data for the contained files</em></li>
+        <li><em>Data for the contained files, as described in the file and
+                tileset entries</em></li>
+        </ul>
+        <p>Note that the data of the contained files might be after the header,
+           and the file/tileset entries after the contained files. The offset to
+           the file entries and the offset to each contained file should be used
+           to know the exact location of each.</p>
       </div>
       <br />
     </div>
@@ -72,7 +79,7 @@ title: "BIFF file format"
           <tr>
             <td>0x0004</td>
             <td>4 (char array)</td>
-            <td>Version ('V1 ')</td>
+            <td>Version ('V1 &nbsp;')</td>
           </tr>
           <tr>
             <td>0x0008</td>
@@ -250,17 +257,17 @@ title: "BIFF file format"
             <td>Filename (length specified by previous field)</td>
           </tr>
           <tr>
-            <td>sizeof(filename)+0x0010</td>
+            <td>sizeof(filename)+0x000C</td>
             <td>4 (dword)</td>
             <td>Uncompressed data length</td>
           </tr>
           <tr>
-            <td>sizeof(filename)+0x0014</td>
+            <td>sizeof(filename)+0x0010</td>
             <td>4 (dword)</td>
             <td>Compressed data length</td>
           </tr>
           <tr>
-            <td>sizeof(filename)+0x0018</td>
+            <td>sizeof(filename)+0x0014</td>
             <td>Variable (raw data)</td>
             <td>Compressed data</td>
           </tr>

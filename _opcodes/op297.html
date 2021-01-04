@@ -2,7 +2,7 @@
 n: 297
 name: "Spell Effect: Immunity to Turn Undead"
 param1: "Undefined"
-param2: "Constant Value"
+param2: "Stat Value"
 bg1: 0
 bg2: 1
 bgee: 1
@@ -11,5 +11,11 @@ iwd2: 0
 pst: 0
 ---
 Makes the targeted creature(s) immune to the Turn Undead effect.
-<br/>Constant Value should be non-zero.
-<br/>The effect modifies stat 187.
+<br/>
+<br/>The effect modifies <a href="../files/ids/bgee/stats.htm#187">IMMUNE_TO_TURN_UNDEAD</a> to <code>Stat Value</code>.
+
+{% capture note %}
+The <code>Stat Value</code> parameter can take any value. If you set it to <code>0</code>, you will disable the effect (for its duration).
+{% endcapture %}
+
+{% include note.html %}

@@ -3,6 +3,8 @@ n: 330
 name: "Text: Float Text"
 param1: "Strref"
 param2: "Type"
+param3: "Starting strref"
+special: "Count"
 bg1: 0
 bg2: 0
 bgee: 1
@@ -10,7 +12,26 @@ iwd1: 0
 iwd2: 0
 pst: 0
 ---
-Displays the text specified by the 'Strref' field, in the style specified by the 'Type' field.
-<br/>Known values for 'Type' are:
-<br/>0   Default (show strref)
-<br/>1   Cynicism (show Cynicism strrefs)
+Displays the text specified by the <code>Strref</code> field, in the style specified by the <code>Type</code> field.
+<br/>Known values for <code>Type</code> are:
+<ul>
+	<li>0 &longrightarrow; Default (show strref)</li>
+	<li>1 &longrightarrow; Cynicism (show Cynicism strrefs)</li>
+</ul>
+
+About <code>Cynicism</code> option:
+<ul>
+	<li>Uses a random String Reference from between <code>24916 – 24940</code>.</li>
+	<li>Triggers at random intervals throughout its duration.</li>
+	<li>Maintains <a href="../files/ids/bgee/splstate.htm#255">CYNICISM_EQUIPPED</a> on the targeted creature(s).</li>
+</ul>
+
+If used from an external effect (<a href="../file_formats/ie_formats/eff_v2.htm">EFF</a>), <code>Strref</code> is set to <code>0</code> and <code>Type</code> to <code>1</code>, the third parameter will
+dictate the first strref and <code>Count</code> will dictate the count. Then the number of lines of <code>Count</code> will
+be displayed starting with the strref in <code>Starting strref</code>.
+
+{% capture note %}
+When <code>Type=0</code>, it is possible to colorize the string. In order to do so, follow the instructions concerning the colorization of the name of your character during <a href="https://gibberlings3.github.io/iesdp/appendices/charactercreation.htm">Character Creation</a>.
+{% endcapture %}
+
+{% include info.html %}

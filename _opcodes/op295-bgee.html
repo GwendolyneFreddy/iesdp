@@ -2,7 +2,7 @@
 n: 295
 name: "Graphics: Disable Permanent Death"
 param1: "Undefined"
-param2: "Constant Value"
+param2: "Stat Value"
 bg1: 0
 bg2: 1
 bgee: 1
@@ -10,6 +10,13 @@ iwd1: 0
 iwd2: 0
 pst: 0
 ---
-This targeted creature(s) will never suffer a permanent death (and will therefore always remain resurrectable) - exceptions include petrification and freeze-death.
-<br/>The Constant Value parameter should be set to 1, and timing mode should be 9 (Permanent after Death).
-<br/>The effect modifies stat 186.
+This targeted creature(s) will never suffer a permanent death (and will therefore always remain resurrectable) – exceptions include petrification and freeze-death.
+<br/>
+<br/>The effect modifies <a href="../files/ids/bgee/stats.htm#186">NO_PERMANENT_DEATH</a> to <code>Stat Value</code>.<br/>
+<code>Timing Mode</code> should be set to <code>9 (Permanent after Death)</code>.
+
+{% capture note %}
+The <code>Stat Value</code> parameter can take any value. If you set it to <code>0</code>, you will disable the effect (for its duration).
+{% endcapture %}
+
+{% include note.html %}

@@ -1,0 +1,13 @@
+bg1: 1
+bg2: 1
+iwd2: 1
+iwd1: 1
+bgee: 1
+n: 200
+name: RandomWalkContinuous
+desc: |-
+  This action causes the active creature to walk randomly, without pausing.
+
+  {% capture note %}
+  It is the same as [RandomWalk()](#85), just with the offscreen-wait removed and no [RandomTurn()](#130) chance.
+  {% endcapture %} {% include note.html %}
